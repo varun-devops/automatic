@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "ADP punch-in/punch-out automation",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "dev": "netlify dev"
+    "dev": "netlify dev",
+    "build": "npm install"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
