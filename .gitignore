@@ -1,5 +1,19 @@
-node_modules/
-.env
+# Dependencies
+node_modules
+npm-debug.log
+
+# Netlify
 .netlify
-functions/
-dist/
+
+# Environment variables
+.env
+.env.local
+
+# Build files
+build
+dist
+
+# Misc
+.DS_Store
+.idea
+.vscode

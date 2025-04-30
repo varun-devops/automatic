@@ -36,27 +36,43 @@
 
     <script>
         document.getElementById('status-btn').addEventListener('click', async () => {
-            const response = await fetch('/api/status');
-            const data = await response.json();
-            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('status').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
         });
 
         document.getElementById('punch-in-btn').addEventListener('click', async () => {
-            const response = await fetch('/api/punch-in');
-            const data = await response.json();
-            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            try {
+                const response = await fetch('/api/punch-in');
+                const data = await response.json();
+                document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('status').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
         });
 
         document.getElementById('punch-out-btn').addEventListener('click', async () => {
-            const response = await fetch('/api/punch-out');
-            const data = await response.json();
-            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            try {
+                const response = await fetch('/api/punch-out');
+                const data = await response.json();
+                document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('status').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
         });
 
         document.getElementById('report-btn').addEventListener('click', async () => {
-            const response = await fetch('/api/generate-report');
-            const data = await response.json();
-            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            try {
+                const response = await fetch('/api/generate-report');
+                const data = await response.json();
+                document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('status').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
         });
     </script>
 </body>
