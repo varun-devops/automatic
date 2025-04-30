@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "netlify dev",
-    "build": "npm install"
+    "build": "echo 'No build step required - serverless functions only'"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
