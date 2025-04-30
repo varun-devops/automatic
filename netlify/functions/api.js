@@ -1,45 +1,24 @@
-const serverless = require('serverless-http');
 const express = require('express');
-const { punchIn, punchOut, generateAndUploadReport } = require('./src/punch-in');
+const serverless = require('serverless-http');
 require('dotenv').config();
 
 const app = express();
+app.use(express.json());
 
-// Status endpoint
-app.get('/api/status', (req, res) => {
+// Default route
+app.get('/', (req, res) => {
   res.json({
-    status: 'ADP Punch-in/Punch-out Automation Service is running',
-    nextPunchInTime: process.env.PUNCH_IN_TIME || '0 5 10 * * 1-5',
-    nextPunchOutTime: process.env.PUNCH_OUT_TIME || '0 58 23 * * 1-5'
+    message: 'ADP Automation API is running'
   });
 });
 
-// Manual trigger endpoints
-app.get('/api/punch-in', async (req, res) => {
-  try {
-    const result = await punchIn();
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
+// Health check route
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString()
+  });
 });
 
-app.get('/api/punch-out', async (req, res) => {
-  try {
-    const result = await punchOut();
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
-
-app.get('/api/generate-report', async (req, res) => {
-  try {
-    const result = await generateAndUploadReport('daily');
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
-
+// Export the serverless function
 module.exports.handler = serverless(app);

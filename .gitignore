@@ -10,8 +10,9 @@ npm-debug.log
 .env.local
 
 # Build files
-build
-dist
+# Commenting out build and dist to ensure they're committed if needed
+# build
+# dist
 
 # Misc
 .DS_Store
