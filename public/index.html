@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADP Automation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ADP Automation Control Panel</h1>
+    <div>
+        <button id="punch-in-btn">Punch In</button>
+        <button id="punch-out-btn">Punch Out</button>
+        <button id="report-btn">Generate Report</button>
+        <button id="status-btn">Check Status</button>
+    </div>
+    <div id="status"></div>
+
+    <script>
+        document.getElementById('status-btn').addEventListener('click', async () => {
+            const response = await fetch('/api/status');
+            const data = await response.json();
+            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        });
+
+        document.getElementById('punch-in-btn').addEventListener('click', async () => {
+            const response = await fetch('/api/punch-in');
+            const data = await response.json();
+            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        });
+
+        document.getElementById('punch-out-btn').addEventListener('click', async () => {
+            const response = await fetch('/api/punch-out');
+            const data = await response.json();
+            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        });
+
+        document.getElementById('report-btn').addEventListener('click', async () => {
+            const response = await fetch('/api/generate-report');
+            const data = await response.json();
+            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "adp-automation",
+  "version": "1.0.0",
+  "description": "ADP punch-in/punch-out automation",
+  "main": "index.js",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.0.0"
+  }
+}
