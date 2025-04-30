@@ -11,13 +11,5 @@
   to = "/.netlify/functions/api/:splat"
   status = 200
 
-[build.environment]
-  NODE_VERSION = "18"
-
-# Schedule the function to run every weekday at 10:05 AM
 [[plugins]]
   package = "@netlify/plugin-functions-schedule"
-
-  [plugins.inputs]
-    schedule = "0 5 10 * * 1-5"
-    function = "scheduled-punch"
