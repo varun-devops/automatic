@@ -16,7 +16,6 @@
     "serverless-http": "^2.7.0"
   },
   "devDependencies": {
-    "netlify-cli": "^12.0.0",
-    "@netlify/plugin-functions-schedule": "^1.3.3"
+    "netlify-cli": "^12.0.0"
   }
 }
