@@ -1,8 +1,8 @@
 [build]
-  command = "npm install"
-  functions = "netlify/functions"
-  publish = "public"
-  
+  command = "npm run build"
+  publish = "dist"
+
+# Environment variables can be set here
 [build.environment]
   NODE_VERSION = "18"
 
@@ -14,5 +14,7 @@
   to = "/.netlify/functions/api/:splat"
   status = 200
 
-[[plugins]]
-  package = "@netlify/plugin-functions-schedule"
+# If you need scheduled functions, use the current version of the plugin
+# Commented out until needed to prevent build errors
+# [[plugins]]
+# package = "@netlify/plugin-functions-core"
