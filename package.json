@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "netlify dev",
-    "build": "echo 'No build step required - serverless functions only'"
+    "build": "mkdir -p dist && cp index.html dist/ || echo 'Creating dist folder for deployment'"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
